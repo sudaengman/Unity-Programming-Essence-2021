@@ -16,7 +16,6 @@ public class Move : MonoBehaviour
     int count = 0;
 
     public float maxY = 4;
-    public
 
     // Start is called before the first frame update
     void Start()
