@@ -12,10 +12,11 @@ GameObject:
   - component: {fileID: 3971759751728578601}
   - component: {fileID: 3971759751728578602}
   - component: {fileID: 3971759751728578603}
-  - component: {fileID: 3971759751728578605}
+  - component: {fileID: 7004929512261169123}
+  - component: {fileID: -5851280427096222782}
   m_Layer: 0
   m_Name: rock
-  m_TagString: Untagged
+  m_TagString: stone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -134,7 +135,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.28, y: 1.28}
   m_EdgeRadius: 0
---- !u!114 &3971759751728578605
+--- !u!114 &7004929512261169123
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -143,6 +144,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 3971759751728578614}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 93c1a2a45d3f7a94d9680ea9a4010bba, type: 3}
+  m_Script: {fileID: 11500000, guid: 816ac7d4382345c40826821d10e3102e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameover: {fileID: 0}
+--- !u!114 &-5851280427096222782
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3971759751728578614}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec4f0394f50dee74a99d05ee9205361a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

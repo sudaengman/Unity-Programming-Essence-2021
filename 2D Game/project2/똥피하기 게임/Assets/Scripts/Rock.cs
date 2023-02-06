@@ -11,6 +11,7 @@ public class Rock : MonoBehaviour
     public GameOver gameover;
     public double count = 0;
     public Rigidbody2D rigid;
+    public bool isdestroy = false;
     
     // Start is called before the first frame update
     void Start()
@@ -27,17 +28,7 @@ public class Rock : MonoBehaviour
 
     private void FixedUpdate()
     {
-        count += 1;
-        if (count == 60)
-        {
-
-
-            float xran = Random.Range(-10f, 10f);
-            _newStone = Instantiate(rockduple) as GameObject;
-            _newStone.transform.position = (new Vector3(xran, 10, 0));
-            
-            count = 0;
-        }
+        
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -47,7 +38,12 @@ public class Rock : MonoBehaviour
         {
             if (collision.gameObject.name == "floor") 
             {
-                Destroy(this.gameObject);
+                if (isdestroy == true)
+                {
+                    Destroy(this.gameObject);
+                }
+
+                
             }
             if (collision.gameObject.name == "Player")
             {
@@ -55,7 +51,10 @@ public class Rock : MonoBehaviour
                 collision.gameObject.SetActive(false);
                 gameover.gameObject.SetActive(true);
                 Time.timeScale = 0;
-                Destroy(this.gameObject);
+                if (isdestroy == true) 
+                {
+                    Destroy(this.gameObject);
+                }
 
             }
             

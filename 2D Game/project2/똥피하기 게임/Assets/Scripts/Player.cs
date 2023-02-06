@@ -6,11 +6,15 @@ public class Player : MonoBehaviour
 {
     public float speed;
     string nowAnime = "";
+    public Rigidbody2D rigid;
+    public GameOver gameover;
 
     // Start is called before the first frame update
     void Start()
     {
         speed = 5;
+        rigid.freezeRotation = true;
+        rigid.constraints = RigidbodyConstraints2D.FreezePositionY;
     }
 
     // Update is called once per frame
@@ -52,6 +56,14 @@ public class Player : MonoBehaviour
         if (collision.gameObject.tag == "Left wall")
         {
             this.transform.position = new Vector3(10,playerYposition);
+        }
+
+        if (collision.gameObject.tag == "stone")
+        {
+            Time.timeScale = 0;
+            gameover.gameObject.SetActive(true);
+            Destroy(this.gameObject);
+
         }
     }
 }
