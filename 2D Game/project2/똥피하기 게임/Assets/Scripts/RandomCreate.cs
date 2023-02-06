@@ -32,7 +32,7 @@ public class RandomCreate : MonoBehaviour
         {
             intervalSec = Random.Range((float)0.1, 1);
             count = 0;
-            Invoke("CreatePrefab_Repeat", intervalSec);
+            Invoke("CreatePrefab_Invoke", intervalSec);
         }
     }
 
@@ -40,22 +40,22 @@ public class RandomCreate : MonoBehaviour
 
     void CreatePrefab_Invoke()
     {
-        Debug.LogWarning("인보크 함수 호출");
+        //Debug.LogWarning("인보크 함수 호출");
+        Vector3 area = this.transform.position;
+
+        Vector3 newPos = this.transform.position;
+        newPos.x = Random.Range(area.x - 1, area.x + 1);
+        newPos.y = area.y - 2;
+        newPos.z = -5;
+
+        GameObject newGo = Instantiate(newPrefab) as GameObject;
+        newGo.transform.position = newPos;
+
     }
 
     void CreatePrefab_Repeat()
     {
         /*스프라이트의 사이즈를 알 수 있음*/
         //Vector3 area = GetComponent<SpriteRenderer>().bounds.size;
-
-        Vector3 area = this.transform.position;
-
-        Vector3 newPos = this.transform.position;
-        newPos.x = Random.Range(area.x - 1 , area.x + 1);
-        newPos.y = area.y - 2;
-        newPos.z = -5;
-
-        GameObject newGo = Instantiate(newPrefab) as GameObject;
-        newGo.transform.position = newPos;
     }
 }
