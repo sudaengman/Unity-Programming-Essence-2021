@@ -23,12 +23,7 @@ public class DestroyMe : MonoBehaviour
     {
         if (collision.collider != null)
         {
-            if (collision.collider.gameObject.name == "Player")
-            {
-                Destroy(this.gameObject);
-            }
-
-            if (collision.collider.gameObject.name == "floor")
+            if (collision.collider.gameObject.name == "Player" || collision.collider.gameObject.name == "floor")
             {
                 Destroy(this.gameObject);
             }
