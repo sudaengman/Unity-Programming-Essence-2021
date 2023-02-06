@@ -12,6 +12,7 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        rigid = GetComponent<Rigidbody2D>();
         speed = 5;
         rigid.freezeRotation = true;
         rigid.constraints = RigidbodyConstraints2D.FreezePositionY;

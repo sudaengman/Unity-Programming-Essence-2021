@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
 using UnityEngine;
 
 public class RandomCreate : MonoBehaviour
@@ -13,14 +14,29 @@ public class RandomCreate : MonoBehaviour
     
     public float startSec = 2.0f;
     public float intervalSec = 1.0f;
+    public float count = 0;
     /*프리팹을 담을 게임오브젝트*/
     public GameObject newPrefab;
+    
     // Start is called before the first frame update
     void Start()
     {
-        Invoke("CreatePrefab_Invoke",intervalSec); // 1초 뒤 한 번 실행
-        InvokeRepeating("CreatePrefab_Repeat", startSec, intervalSec); // 2초 뒤 실행되고 1초마다 반복
+        //Invoke("CreatePrefab_Invoke",intervalSec); // 1초 뒤 한 번 실행
+        //InvokeRepeating("CreatePrefab_Repeat", startSec, intervalSec); // 2초 뒤 실행되고 1초마다 반복
     }
+
+    private void FixedUpdate()
+    {
+        count++;
+        if (count == 30)
+        {
+            intervalSec = Random.Range((float)0.1, 1);
+            count = 0;
+            Invoke("CreatePrefab_Repeat", intervalSec);
+        }
+    }
+
+
 
     void CreatePrefab_Invoke()
     {
