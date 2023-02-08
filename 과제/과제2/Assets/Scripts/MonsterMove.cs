@@ -9,7 +9,7 @@ public class MonsterMove : MonoBehaviour
     Rigidbody2D rigid;
     SpriteRenderer ren;
 
-    float count;
+    public float Count = 0;
     bool isflip = false;
     
     // Start is called before the first frame update
@@ -25,24 +25,40 @@ public class MonsterMove : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //count += 0;
-        //if (count > 100)
-        //{
-        //    count = 0;
-        //    vx = -speed;
-        //    isflip = false;
-        //}
-        //else 
-        //{
-        //    vx = speed;
-        //    isflip = true;
-        //}
+        Count += 1;
+        if (Count == 300)
+        {
+            Count = 0;
+            vx = -vx;
+            isflip = !isflip;
+        }
     }
 
     private void FixedUpdate()
     {
-        vx = 0;
-        rigid.velocity = new Vector3(vx,transform.position.y,0);
+        rigid.velocity = new Vector3(vx,0,0);
         ren.flipX = isflip;
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision != null)
+        {
+            if (collision.gameObject.tag == "Player")
+            { 
+                collision.gameObject.gameObject.SetActive(false);
+            }
+            
+        }
+
+        
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.name == "stone(Clone)")
+        {
+            this.gameObject.SetActive(false);
+        }
     }
 }

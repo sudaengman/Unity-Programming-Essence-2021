@@ -9,10 +9,11 @@ public class Move : MonoBehaviour
     public float vx;
     Rigidbody2D rigid ;
 
-    
-    public bool groundFlag = false;
-    public bool pushFlag = false;
-    public bool jumpFlag = false;
+    public float keyCount = 0;
+
+    bool groundFlag = false;
+    bool pushFlag = false;
+    bool jumpFlag = false;
 
     public string PlayerAni;
     // Start is called before the first frame update
@@ -70,9 +71,22 @@ public class Move : MonoBehaviour
         }
     }
 
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision != null)
+        {
+            if (collision.gameObject.tag == "Key")
+            {
+                collision.gameObject.SetActive(false);
+                keyCount += 1;
+            }
+        }
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         groundFlag = true;
+        
     }
 
     private void OnTriggerExit2D(Collider2D collision)
