@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class MonsterMove : MonoBehaviour
 {
@@ -47,6 +48,7 @@ public class MonsterMove : MonoBehaviour
             if (collision.gameObject.tag == "Player")
             { 
                 collision.gameObject.gameObject.SetActive(false);
+                
             }
             
         }
