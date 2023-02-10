@@ -29,7 +29,7 @@ public class TimeController : MonoBehaviour
             curTime += Time.deltaTime; // 이전프레임에서 다음프레임의 경과시간
 
             /*타이머가 잘 작동하는지 검증하기*/
-            Debug.Log("CURTIME: " + curTime);
+            //Debug.Log("CURTIME: " + curTime);
             if (isCountDown)
             {
                 displayTime = gameTime - curTime;
@@ -48,7 +48,7 @@ public class TimeController : MonoBehaviour
                     isTimeOver= true;
                 }
             }
-            Debug.Log("TIMES:" + curTime);
+            //Debug.Log("TIMES:" + curTime);
         }
     }
 }

@@ -13,6 +13,8 @@ public class MonsterMove : MonoBehaviour
     public float Count = 0;
     bool isflip = false;
     
+    public GameObject Gameover;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -20,6 +22,8 @@ public class MonsterMove : MonoBehaviour
         rigid.freezeRotation = true;
 
         ren = GetComponent<SpriteRenderer>();
+        
+        Gameover.SetActive(false);
         
     }
 
@@ -48,6 +52,7 @@ public class MonsterMove : MonoBehaviour
             if (collision.gameObject.tag == "Player")
             { 
                 collision.gameObject.gameObject.SetActive(false);
+                Gameover.SetActive(true);
                 
             }
             

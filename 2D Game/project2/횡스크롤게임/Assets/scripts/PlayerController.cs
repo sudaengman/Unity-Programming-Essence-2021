@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
+using UnityEditor.UI;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -28,6 +30,8 @@ public class PlayerController : MonoBehaviour
     string oldAnime = ""; //예전 애니메이션은 어떤것인가.
 
     public static string GameState = "playing";
+
+    public int score = 0;
 
 
     // Start is called before the first frame update
@@ -143,7 +147,14 @@ public class PlayerController : MonoBehaviour
         }
         if (collision.gameObject.tag == "Dead")
         {
-            Dead();
+            GameOver();
+        }
+        if (collision.gameObject.tag == "Scoreitem")
+        { 
+            itemData item = collision.gameObject.GetComponent<itemData>();
+            score = item.value;
+
+            Destroy(collision.gameObject);
         }
     }
 
@@ -160,7 +171,7 @@ public class PlayerController : MonoBehaviour
         GameStop();
     }
     
-    void Dead()
+    public void GameOver()
     {
         animator.Play(OverAni);
         GameState = "gameOver";
@@ -171,7 +182,7 @@ public class PlayerController : MonoBehaviour
         rigid.AddForce(new Vector2(0, 5), ForceMode2D.Impulse);
     }
 
-    void GameStop()
+    public void GameStop()
     { 
         rigid.velocity = new Vector2(0,0);
     }

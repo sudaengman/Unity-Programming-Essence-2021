@@ -920,6 +920,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab9128bdab9abab4f976ad8d00b81a73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  GameClear: {fileID: 1583202446}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -1962,6 +1963,7 @@ MonoBehaviour:
   speed: 1
   vx: 2
   Count: 0
+  Gameover: {fileID: 140510901}
 --- !u!58 &1468242748
 CircleCollider2D:
   m_ObjectHideFlags: 0
