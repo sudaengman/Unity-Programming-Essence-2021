@@ -55,8 +55,9 @@ public class CannonController : MonoBehaviour
     {
         bool ret = false;
 
+        /*타겟포스 : 플레이어와 대포 사이의 거리값을 변수 d에 넣겠다.*/
         float d = Vector2.Distance(transform.position, targetPos);
-        if (length >= d)
+        if (length >= d) // 거리값이 length(8) 이하라면,
         {
             ret = true;
         }

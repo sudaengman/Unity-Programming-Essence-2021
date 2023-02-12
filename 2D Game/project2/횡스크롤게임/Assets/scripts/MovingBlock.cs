@@ -28,6 +28,11 @@ public class MovingBlock : MonoBehaviour
         perDx = moveX / (1.0f / timeStep * times);
 
         perDy = moveY / (1.0f / timeStep * times);
+
+        if (isMoveWhenOn)
+        {
+            isCanMove = false;
+        }
     }
 
     /*무빙 오브젝트의 작동코드*/
@@ -41,13 +46,13 @@ public class MovingBlock : MonoBehaviour
             bool endY = false;
 
             if (isReverse) // 역방향으로 움직일 때
-            {
-                if ((perDx >= 0.0f && x <= defPos.x + moveX) || (perDx < 0.0f && x >= defPos.x + moveX))
+            { 
+                if ((perDx >= 0.0f && x <= defPos.x) || (perDx < 0.0f && x >= defPos.x)) // perDx는 양수로 설정했으면 쭉 양수기 때문에, 초기 위치(defPos.x)에 닿으면 endX = True;
                 {
                     endX = true;
                 }
 
-                if ((perDy >= 0.0f && y <= defPos.y + moveY) || (perDy < 0.0f && y >= defPos.y + moveY))
+                if ((perDy >= 0.0f && y <= defPos.y) || (perDy < 0.0f && y >= defPos.y))
                 {
                     endY = true;
                 }

@@ -26,7 +26,7 @@ public class TimeController : MonoBehaviour
     {
         if (isTimeOver == false)
         {
-            curTime += Time.deltaTime; // 이전프레임에서 다음프레임의 경과시간
+            curTime += Time.deltaTime; // 이전프레임에서 다음프레임의 경과시간(1/60~80초니까 1초가 지나면 1초가 됨.)
 
             /*타이머가 잘 작동하는지 검증하기*/
             //Debug.Log("CURTIME: " + curTime);
@@ -41,7 +41,7 @@ public class TimeController : MonoBehaviour
             }
             else
             { 
-                displayTime= curTime;
+                displayTime = curTime;
                 if (displayTime >= gameTime)
                 {
                     displayTime = gameTime;
